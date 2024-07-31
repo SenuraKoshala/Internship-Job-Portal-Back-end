@@ -40,4 +40,12 @@ public class JobPostDAOJpaImpl implements JobPostDAO{
         JobPost jobPost = entityManager.find(JobPost.class, id);
         entityManager.remove(id);
     }
+
+    @Override
+    public List<JobPost> findJobPostsInParticularCompany(String email) {
+        String jpql = "SELECT jp FROM JobPost jp WHERE jp.contactInfo = :email";
+        TypedQuery<JobPost> query = entityManager.createQuery(jpql, JobPost.class);
+        query.setParameter("email", email);
+        return query.getResultList();
+    }
 }

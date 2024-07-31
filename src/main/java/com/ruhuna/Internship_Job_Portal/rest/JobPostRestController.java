@@ -19,16 +19,16 @@ public class JobPostRestController {
         this.jobPostService = jobPostService;
     }
 
-    @GetMapping("/api/jobposts")
-    public ResponseEntity<List<JobPost>> getAllJobPosts(){
-        List<JobPost> jobPostList = jobPostService.findAllJobPosts();
-        return new ResponseEntity<>(jobPostList, HttpStatus.OK);
-    }
+//    @GetMapping("/api/jobposts")
+//    public ResponseEntity<List<JobPost>> getAllJobPosts(){
+//        List<JobPost> jobPostList = jobPostService.findAllJobPosts();
+//        return new ResponseEntity<>(jobPostList, HttpStatus.OK);
+//    }
 
-    @PostMapping("api/jobposts")
-    public void addJobPost(@RequestBody JobPost jobPost){
-        jobPostService.addJobPost(jobPost);
-    }
+//    @PostMapping("api/jobposts")
+//    public void addJobPost(@RequestBody JobPost jobPost){
+//        jobPostService.addJobPost(jobPost);
+//    }
     @PutMapping("api/jobposts")
     public void updateJobPost(@RequestBody JobPost jobPost){
         jobPostService.addJobPost(jobPost);
@@ -37,6 +37,12 @@ public class JobPostRestController {
     @DeleteMapping("/api/jobposts")
     public void deleteJobPost(@PathVariable int id){
         jobPostService.deleteJobPost(id);
+    }
+
+    @GetMapping("api/jobposts")
+    public ResponseEntity<?> companyJobPosts(@RequestParam String email){
+        List<JobPost> companyJobPosts = jobPostService.findCompanyJobPosts(email);
+        return  new ResponseEntity<>(companyJobPosts, HttpStatus.OK);
     }
 
 }

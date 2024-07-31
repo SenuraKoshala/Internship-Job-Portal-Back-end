@@ -11,5 +11,7 @@ public interface JobPostDAO {
     JobPost findById(int id);
     void deleteJobPost(int id);
 
+    List<JobPost> findJobPostsInParticularCompany(String email);
+
 
 }

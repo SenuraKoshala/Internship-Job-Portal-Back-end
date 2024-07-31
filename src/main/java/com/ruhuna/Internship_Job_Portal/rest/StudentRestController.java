@@ -34,8 +34,8 @@ public class StudentRestController {
     @PostMapping("api/students/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
         try {
-            int studentId = studentService.findByEmail(loginRequest.getEmail(), loginRequest.getPassword());
-            return (ResponseEntity<?>) ResponseEntity.ok(studentId);
+            Student student = studentService.findByEmail(loginRequest.getEmail(), loginRequest.getPassword());
+            return (ResponseEntity<?>) ResponseEntity.ok(student);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }

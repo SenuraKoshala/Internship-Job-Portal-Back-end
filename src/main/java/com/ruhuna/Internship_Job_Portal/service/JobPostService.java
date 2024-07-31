@@ -11,5 +11,5 @@ public interface JobPostService {
 
     void deleteJobPost(int id);
 
-    List<JobPost> findCompanyJobPosts(LoginRequest loginRequest);
+    List<JobPost> findCompanyJobPosts(String email);
 }

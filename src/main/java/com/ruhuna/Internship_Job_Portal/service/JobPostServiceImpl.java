@@ -37,17 +37,9 @@ public class JobPostServiceImpl implements JobPostService{
     }
 
     @Override
-    public List<JobPost> findCompanyJobPosts(LoginRequest loginRequest) {
+    public List<JobPost> findCompanyJobPosts(String email) {
 
-        List<JobPost> allJobPosts = jobPostDAOJpa.findAllJobPosts();
-        List<JobPost> companyJobPosts = new ArrayList<>();
-
-        for(JobPost item : allJobPosts){
-            if(Objects.equals(loginRequest.getEmail(), item.getContactInfo())){
-                companyJobPosts.add(item);
-            }
-        }
-        return companyJobPosts;
+        return jobPostDAOJpa.findJobPostsInParticularCompany(email);
     }
 
 

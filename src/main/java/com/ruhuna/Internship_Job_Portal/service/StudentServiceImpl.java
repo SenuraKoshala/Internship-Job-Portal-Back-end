@@ -27,8 +27,7 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public int findByEmail(String email, String password) throws Exception {
-        Student student = studentDAOJpa.findByEmail(email, password);
-        return student.getStudentId();
+    public Student findByEmail(String email, String password) throws Exception {
+        return studentDAOJpa.findByEmail(email, password);
     }
 }

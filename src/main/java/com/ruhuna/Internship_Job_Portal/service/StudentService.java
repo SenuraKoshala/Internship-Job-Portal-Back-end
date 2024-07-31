@@ -7,5 +7,5 @@ public interface StudentService {
     Student findStudentById(int id);
     void saveStudent(Student student);
 
-    int findByEmail(String email, String password) throws Exception;
+    Student findByEmail(String email, String password) throws Exception;
 }
