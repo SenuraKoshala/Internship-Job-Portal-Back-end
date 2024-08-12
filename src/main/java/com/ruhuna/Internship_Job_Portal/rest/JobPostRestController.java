@@ -19,16 +19,16 @@ public class JobPostRestController {
         this.jobPostService = jobPostService;
     }
 
-//    @GetMapping("/api/jobposts")
-//    public ResponseEntity<List<JobPost>> getAllJobPosts(){
-//        List<JobPost> jobPostList = jobPostService.findAllJobPosts();
-//        return new ResponseEntity<>(jobPostList, HttpStatus.OK);
-//    }
+    @GetMapping("/api/jobpost")
+    public ResponseEntity<List<JobPost>> getAllJobPosts(){
+        List<JobPost> jobPostList = jobPostService.findAllJobPosts();
+        return new ResponseEntity<>(jobPostList, HttpStatus.OK);
+    }
 
-//    @PostMapping("api/jobposts")
-//    public void addJobPost(@RequestBody JobPost jobPost){
-//        jobPostService.addJobPost(jobPost);
-//    }
+    @PostMapping("api/jobposts")
+    public void addJobPost(@RequestBody JobPost jobPost){
+        jobPostService.addJobPost(jobPost);
+    }
     @PutMapping("api/jobposts")
     public void updateJobPost(@RequestBody JobPost jobPost){
         jobPostService.addJobPost(jobPost);
