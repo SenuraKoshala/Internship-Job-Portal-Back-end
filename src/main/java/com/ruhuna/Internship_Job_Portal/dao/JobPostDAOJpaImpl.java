@@ -42,6 +42,18 @@ public class JobPostDAOJpaImpl implements JobPostDAO{
     }
 
     @Override
+    public void updateImpression(int id) {
+        JobPost jobPost = entityManager.find(JobPost.class, id);
+
+        if (jobPost != null) {
+            int updatedImpressions = jobPost.getImpressions() + 1;
+            jobPost.setImpressions(updatedImpressions);
+
+            entityManager.merge(jobPost);
+        }
+    }
+
+    @Override
     public List<JobPost> findJobPostsInParticularCompany(String email) {
         String jpql = "SELECT jp FROM JobPost jp WHERE jp.contactInfo = :email";
         TypedQuery<JobPost> query = entityManager.createQuery(jpql, JobPost.class);

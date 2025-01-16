@@ -32,6 +32,11 @@ public class JobPostServiceImpl implements JobPostService{
     }
 
     @Override
+    public void updateImpressions(int id) {
+        jobPostDAOJpa.updateImpression(id);
+    }
+
+    @Override
     public void deleteJobPost(int id) {
         jobPostDAOJpa.deleteJobPost(id);
     }

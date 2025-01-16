@@ -9,6 +9,8 @@ public interface JobPostService {
     List<JobPost> findAllJobPosts();
     void addJobPost(JobPost jobPost);
 
+    void updateImpressions(int id);
+
     void deleteJobPost(int id);
 
     List<JobPost> findCompanyJobPosts(String email);
